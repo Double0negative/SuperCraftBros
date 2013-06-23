@@ -87,7 +87,7 @@ public class CommandHandler implements CommandExecutor
 			try{
 
 				commands.get(sub).onCommand( player,  args);
-			}catch(Exception e){e.printStackTrace(); player.sendMessage(ChatColor.RED+"An error occured while executing the command. Check the      console");                player.sendMessage(ChatColor.BLUE +"Type /ss help for help" );
+			}catch(Exception e){e.printStackTrace(); player.sendMessage(ChatColor.RED+"An error occured while executing the command. Check the      console");                player.sendMessage(ChatColor.BLUE +"Type /scb help for help" );
 			}
 			return true;
 		}

@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.mcsg</groupId>
-	<artifactId>survivalgames</artifactId>
-	<version>0.5.8</version>
-	<name>SurvivalGames</name>
+	<artifactId>SuperCraftBros</artifactId>
+	<version>000</version>
+	<name>SuperCraftBros</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
