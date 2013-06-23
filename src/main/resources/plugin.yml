@@ -1,0 +1,10 @@
+name: UberCraftHoes
+authors: [Double0negative, MCSG]
+version: idk
+main: org.mcsg.double0negative.supercraftbros.SuperCraftBros
+
+commands:
+  scb:
+    description: Survival Games Control
+    usage: /scb(command) (args)
+    aliases: [scb]
