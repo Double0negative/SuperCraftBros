@@ -2,6 +2,7 @@ package org.mcsg.double0negative.supercraftbros.classes;
 
 import java.util.Set;
 
+import net.minecraft.server.v1_5_R3.Packet61WorldEvent;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

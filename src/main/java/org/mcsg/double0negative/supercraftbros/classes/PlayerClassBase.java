@@ -140,7 +140,7 @@ public class PlayerClassBase implements PlayerClass {
 			l = l.add(0, -1, 0);
 			for(int x = l.getBlockX() - 1; x<=l.getBlockX()+1; x++){
 				for(int z = l.getBlockZ() - 1; z<=l.getBlockZ()+1; z++){
-					SendPacketToAll(new Packet61WorldEvent(2001,x, l.getBlockY()+1, z, l.getBlock().getState().getTypeId(), false));
+				SendPacketToAll(new Packet61WorldEvent(2001,x, l.getBlockY()+1, z, l.getBlock().getState().getTypeId(), false));
 				//	exploadBlocks(new Location(l.getWorld(), x, l.getBlockY(), z));
 				}
 			}

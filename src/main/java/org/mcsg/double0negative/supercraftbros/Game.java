@@ -86,18 +86,18 @@ public class Game {
 			p.setHealth(20); p.setFoodLevel(20);
 
 			TabAPI.setPriority(GameManager.getInstance().getPlugin(), p, 2);
-			p.sendMessage(ChatColor.YELLOW+"§lJoined arena "+gameID+". Select a class! \nHit tab for HUD!");
-			msgAll(ChatColor.GREEN+p.getName()+" joined the game!");
+			p.sendMessage(ChatColor.YELLOW + "" + ChatColor.BOLD + "Joined arena " + gameID + ". Select a class! \nHit tab for HUD!");
+			msgAll(ChatColor.GREEN + p.getName()+ " joined the game!");
 			updateTabAll();
 		}
 		else if(state == State.INGAME){
-			p.sendMessage(ChatColor.RED+"Game already started!");
+			p.sendMessage(ChatColor.RED + "Game already started!");
 		}
 		else if(players.size() >= 10){
-			p.sendMessage(ChatColor.RED+"Game Full!");
+			p.sendMessage(ChatColor.RED + "Game Full!");
 		}
 		else{
-			p.sendMessage(ChatColor.RED+"Cannot join game!");
+			p.sendMessage(ChatColor.RED + "Cannot join game!");
 		}
 
 
@@ -117,7 +117,7 @@ public class Game {
 			}
 			else{
 				removePlayer(p, false);
-				p.sendMessage(ChatColor.RED+"You didn't pick a class!");
+				p.sendMessage(ChatColor.RED + "You didn't pick a class!");
 			}
 
 		}
@@ -135,10 +135,10 @@ public class Game {
 				public void run() {
 					if (count > 0) {
 						if (count % 10 == 0) {
-							msgAll(ChatColor.BLUE+"Game starting in "+count);
+							msgAll(ChatColor.BLUE + "Game starting in "+count);
 						}
 						if (count < 6) {
-							msgAll(ChatColor.BLUE+"Game starting in "+count);
+							msgAll(ChatColor.BLUE + "Game starting in "+count);
 						}
 						count--;
 					} else {
@@ -158,7 +158,7 @@ public class Game {
 	public void setPlayerClass(Player player, PlayerClass playerClass){
 		if(player.hasPermission("scb.class."+playerClass.getName())){
 			clearPotions(player);
-			player.sendMessage(ChatColor.GREEN+"You choose "+playerClass.getName()+"!");
+			player.sendMessage(ChatColor.GREEN + "You choose " + playerClass.getName() + "!");
 			//int prev = pClasses.keySet().size();
 			pClasses.put(player, playerClass);
 			updateTabAll();
@@ -168,14 +168,14 @@ public class Game {
 			}
 		}
 		else{
-			player.sendMessage(ChatColor.RED+"You do not have permission for this class!");
+			player.sendMessage(ChatColor.RED + "You do not have permission for this class!");
 		}
 	}
 
 	public void killPlayer(Player p, String msg){
 		clearPotions(p);
 
-		msgAll(ChatColor.GOLD+msg);
+		msgAll(ChatColor.GOLD + msg);
 		int lives = players.get(p)-1;
 		if(lives <= 0){
 			playerEliminate(p);
@@ -183,7 +183,7 @@ public class Game {
 		}
 		else{
 			players.put(p, lives);
-			msgAll(p.getName() +" has "+lives+" lives left");
+			msgAll(p.getName() + " has " + lives + " lives left");
 		}
 		updateTabAll();
 
@@ -191,7 +191,7 @@ public class Game {
 
 	public void playerEliminate(Player p){
 		started = false;
-		msgAll(ChatColor.DARK_RED+p.getName()+" has been eliminated!");
+		msgAll(ChatColor.DARK_RED + p.getName() + " has been eliminated!");
 
 		players.remove(p);
 		//pClasses.remove(p);
@@ -209,7 +209,7 @@ public class Game {
 			for(Player pl2 : players.keySet()){
 				pl = pl2;
 			}
-			Bukkit.broadcastMessage(ChatColor.BLUE+pl.getName()+" won Super Craft Bros on arena "+gameID);
+			Bukkit.broadcastMessage(ChatColor.BLUE + pl.getName() + " won Super Craft Bros on arena " + gameID);
 			gameEnd();
 		}
 		TabAPI.setPriority(GameManager.getInstance().getPlugin(), p, -1);
@@ -258,28 +258,28 @@ public class Game {
 
 	public void updateTab(Player p){
 		Plugin plugin = GameManager.getInstance().getPlugin();
-		TabAPI.setTabString(plugin, p, 0, 0, "        §lSuper");
-		TabAPI.setTabString(plugin, p, 0, 1, "   §lCraft");
-		TabAPI.setTabString(plugin, p, 0, 2, "  §lBros");
-		TabAPI.setTabString(plugin, p, 1, 1, "   §lBrawl");
-		TabAPI.setTabString(plugin, p, 2, 0, " §6§l----------");
-		TabAPI.setTabString(plugin, p, 2, 1, "§e§l----------");
-		TabAPI.setTabString(plugin, p, 2, 2, "§6§l---------- ");
+		TabAPI.setTabString(plugin, p, 0, 0, "        \u00a7lSuper");
+		TabAPI.setTabString(plugin, p, 0, 1, "   \u00a7lCraft");
+		TabAPI.setTabString(plugin, p, 0, 2, "  \u00a7lBros");
+		TabAPI.setTabString(plugin, p, 1, 1, "   \u00a7lBrawl");
+		TabAPI.setTabString(plugin, p, 2, 0, " \u00a76\u00a7l----------");
+		TabAPI.setTabString(plugin, p, 2, 1, "\u00a7e\u00a7l----------");
+		TabAPI.setTabString(plugin, p, 2, 2, "\u00a76\u00a7l---------- ");
 
-		TabAPI.setTabString(plugin, p, 4, 0, "§lArena");
+		TabAPI.setTabString(plugin, p, 4, 0, "\u00a7lArena");
 		TabAPI.setTabString(plugin, p, 4, 1, gameID+TabAPI.nextNull());
-		TabAPI.setTabString(plugin, p, 5, 0, "§lClass");
+		TabAPI.setTabString(plugin, p, 5, 0, "\u00a7lClass");
 		TabAPI.setTabString(plugin, p, 5, 1, (getPlayerClass(p) != null)? getPlayerClass(p).getName()+TabAPI.nextNull():"None "+TabAPI.nextNull());
 
-		TabAPI.setTabString(plugin, p, 7, 0, "§e§lPlayer");
-		TabAPI.setTabString(plugin, p, 7, 1, "§e§lLives");
-		TabAPI.setTabString(plugin, p, 7, 2, "§e§lClass");
+		TabAPI.setTabString(plugin, p, 7, 0, "\u00a7e\u00a7lPlayer");
+		TabAPI.setTabString(plugin, p, 7, 1, "\u00a7e\u00a7lLives");
+		TabAPI.setTabString(plugin, p, 7, 2, "\u00a7e\u00a7lClass");
 
 		int a = 8;
 		for(Player pl:players.keySet()){
 			int h = convertHealth(pl.getHealth());
 			TabAPI.setTabString(plugin, p, a, 0, pl.getName(), h);
-			TabAPI.setTabString(plugin, p, a, 1, "§a"+players.get(pl)+TabAPI.nextNull(), h);
+			TabAPI.setTabString(plugin, p, a, 1, "\u00a7a"+players.get(pl)+TabAPI.nextNull(), h);
 			TabAPI.setTabString(plugin, p, a, 2, (getPlayerClass(pl) != null)? getPlayerClass(pl).getName()+TabAPI.nextNull():"None "+TabAPI.nextNull(),h );
 			a++;
 		}
@@ -287,7 +287,7 @@ public class Game {
 		if(state == State.INGAME){
 			for(Player pl:inactive){
 				TabAPI.setTabString(plugin, p, a, 0, pl.getName(), -1);
-				TabAPI.setTabString(plugin, p, a, 1, "§c0"+TabAPI.nextNull(), -1);
+				TabAPI.setTabString(plugin, p, a, 1, "\u00a7c0"+TabAPI.nextNull(), -1);
 				TabAPI.setTabString(plugin, p, a, 2, (getPlayerClass(pl) != null)? getPlayerClass(pl).getName()+TabAPI.nextNull():"None "+TabAPI.nextNull(), -1);
 
 				a++;
@@ -365,7 +365,7 @@ public class Game {
 		playerEliminate(p);
 		inactive.remove(p);
 		p.teleport(SettingsManager.getInstance().getLobbySpawn());
-		msgAll(ChatColor.RED+p.getName()+" left the game!");
+		msgAll(ChatColor.RED + p.getName() + " left the game!");
 	}
 
 	public void msgAll(String msg){
@@ -385,7 +385,7 @@ public class Game {
 	public void disable() {
 		for(Player p: players.keySet().toArray(new Player[0])){
 			playerEliminate(p);
-			p.sendMessage(ChatColor.RED+"Game Disabled");
+			p.sendMessage(ChatColor.RED + "Game Disabled");
 		}
 		gameEnd();
 		state = State.DISABLED;
