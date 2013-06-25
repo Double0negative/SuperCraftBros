@@ -26,6 +26,10 @@
 			<id>sk89q-repo</id>
 			<url>http://maven.sk89q.com/repo</url>
 		</repository>
+		<repository>
+			<id>Plugin Metrics</id>
+			<url>http://repo.mcstats.org/content/repositories/public</url>
+		</repository>
 	</repositories>
 	<build>
 		<plugins> <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId> 
@@ -76,8 +80,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.bukkit</groupId>
-			<artifactId>bukkit</artifactId>
-			<version>1.5.2-R0.1</version>
+			<artifactId>craftbukkit</artifactId>
+			<version>1.5.2-R1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sk89q</groupId>
@@ -88,6 +92,12 @@
 			<groupId>org.mcsg.double0negative</groupId>
 			<artifactId>tabapi</artifactId>
 			<version>B%200.1.15</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mcstats.bukkit</groupId>
+			<artifactId>metrics</artifactId>
+			<version>R6</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

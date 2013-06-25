@@ -17,11 +17,17 @@ import org.mcsg.double0negative.supercraftbros.event.PlayerLeave;
 import org.mcsg.double0negative.supercraftbros.event.PlayerTeleport;
 
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
+import java.io.IOException;
+import org.mcstats.*;
 
 public class SuperCraftBros extends JavaPlugin{
 
 	public void onEnable(){
-
+		try {
+				Metrics metrics = new Metrics(this);
+				metrics.start();
+		} catch (IOException e) {
+		}
 		SettingsManager.getInstance().setup(this);
 		GameManager.getInstance().setup(this);
 		
