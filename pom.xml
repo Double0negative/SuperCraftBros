@@ -80,8 +80,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.bukkit</groupId>
+			<artifactId>bukkit</artifactId>
+			<version>1.6.1-R0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bukkit</groupId>
 			<artifactId>craftbukkit</artifactId>
-			<version>1.5.2-R1.0</version>
+			<version>1.6.1-R0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sk89q</groupId>
@@ -100,6 +105,7 @@
 			<version>R6</version>
 			<scope>compile</scope>
 		</dependency>
+
 	</dependencies>
 </project>
 

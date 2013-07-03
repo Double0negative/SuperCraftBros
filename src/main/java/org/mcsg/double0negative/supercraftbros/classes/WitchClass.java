@@ -3,7 +3,8 @@ package org.mcsg.double0negative.supercraftbros.classes;
 import java.util.Random;
 
 
-import net.minecraft.server.v1_5_R3.Packet61WorldEvent;
+
+import net.minecraft.server.v1_6_R1.Packet61WorldEvent;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
