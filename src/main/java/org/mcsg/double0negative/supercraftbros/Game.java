@@ -319,14 +319,38 @@ public class Game {
 		if(players.containsKey(p)){
 			p.setAllowFlight(true);
 			Random r = new Random();
-			final Location l = SettingsManager.getInstance().getSpawnPoint(gameID, r.nextInt(spawnCount)+1);
-			p.teleport(l);
+			Location l = SettingsManager.getInstance().getSpawnPoint(gameID, r.nextInt(spawnCount)+1);
+			p.teleport(getSafePoint(l));
 			getPlayerClass(p).PlayerSpawn();
 		}
 
 	}
 
+	public Location getSafePoint(Location l){
+		if(isInVoid(l)){
+			while(l.getBlockY() < 256){
+				if(l.getBlock().getTypeId() != 0){
+					return l.add(0,1,0);
+				}
+				else{
+					l.add(0,1,0);
+				}
+			}
+		}
+		return l; //nothing safe at this point
+	}
 
+	public boolean isInVoid(Location l){
+		Location loc = l.clone();
+		while(loc.getBlockY() > 0){
+			loc.add(0,-1,0);
+			if(loc.getBlock().getTypeId() != 0){
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public int getID() {
 		return gameID;
 	}
