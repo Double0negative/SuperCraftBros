@@ -4,7 +4,8 @@ import java.util.Set;
 
 
 
-import net.minecraft.server.v1_6_R2.Packet61WorldEvent;
+
+import net.minecraft.server.v1_6_R3.Packet61WorldEvent;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
