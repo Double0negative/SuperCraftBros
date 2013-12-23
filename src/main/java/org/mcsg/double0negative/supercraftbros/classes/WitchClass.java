@@ -4,7 +4,9 @@ import java.util.Random;
 
 
 
-import net.minecraft.server.v1_6_R3.Packet61WorldEvent;
+
+
+import net.minecraft.server.v1_7_R1.PacketPlayOutWorldEvent;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -119,7 +121,7 @@ public class WitchClass extends PlayerClassBase{
 					public void run(){
 						Location l = pl.getLocation();
 						pl.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 1000, 1));
-						SendPacketToAll(new Packet61WorldEvent(2002,l.getBlockX(), l.getBlockY()+1, l.getBlockZ(), 244, false));
+						SendPacketToAll(new PacketPlayOutWorldEvent(2002,l.getBlockX(), l.getBlockY()+1, l.getBlockZ(), 244, false));
 
 					}
 				}, 20);
