@@ -7,7 +7,9 @@ import java.util.Set;
 
 
 
-import net.minecraft.server.v1_7_R1.PacketPlayOutWorldEvent;
+
+
+import net.minecraft.server.v1_7_R3.PacketPlayOutWorldEvent;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
